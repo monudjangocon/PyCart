@@ -7,13 +7,13 @@ from django.core.urlresolvers import reverse
 
 class Category(models.Model):
 	name = models.CharField(max_length=50)
-	slug = models.SlugField(max_length=50, unique=True, help_text='Unique value for product page URL, created from name.')
+	slug = models.SlugField(max_length=50, unique=True)
 	description = models.TextField()
 	is_active = models.BooleanField(default=True)
 
 	
 	meta_description = models.CharField("Meta Description", max_length=255,help_text='Content for description meta tag')
-	meta_keywords = models.CharField(max_length=255, null=True,help_text='Comma-delimited set of SEO keywords for meta tag')
+	meta_keywords = models.CharField(max_length=255, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	class Meta:
@@ -44,7 +44,7 @@ class Product(models.Model):
 	quantity = models.IntegerField()
 	description = models.TextField()
 	meta_keywords = models.CharField(max_length=255)
-	meta_description = models.CharField(max_length=255, help_text='Content for description meta tag')
+	meta_description = models.CharField(max_length=255)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	categories = models.ManyToManyField(Category)
