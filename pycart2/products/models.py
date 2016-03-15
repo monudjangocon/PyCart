@@ -12,7 +12,7 @@ class Category(models.Model):
 	is_active = models.BooleanField(default=True)
 
 	
-	meta_description = models.CharField("Meta Description", max_length=255,help_text='Content for description meta tag')
+	meta_description = models.CharField("Meta Description", max_length=255)
 	meta_keywords = models.CharField(max_length=255, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
